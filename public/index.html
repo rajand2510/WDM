@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Push Notification Demo</title>
 </head>
 <body>
@@ -16,14 +17,14 @@
 
     document.getElementById('subscribe').onclick = async () => {
       const reg = await navigator.serviceWorker.ready;
-      const key = await fetch('/vapidPublicKey').then(res => res.text());
+      const key = await fetch('/api/vapidPublicKey').then(res => res.text());
 
       const sub = await reg.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(key)
       });
 
-      await fetch('/subscribe', {
+      await fetch('/api/subscribe', {
         method: 'POST',
         body: JSON.stringify(sub),
         headers: { 'Content-Type': 'application/json' }
