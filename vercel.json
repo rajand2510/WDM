@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/vapidPublicKey", "destination": "/api/vapidPublicKey" },
+    { "source": "/subscribe", "destination": "/api/subscribe" },
+    { "source": "/send", "destination": "/api/send" }
+  ]
+}
